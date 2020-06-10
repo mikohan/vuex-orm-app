@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Test from '@/components/Test'
+import Many from '@/components/Many'
 
 Vue.use(VueRouter)
 
@@ -10,6 +11,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/many',
+    name: 'Many',
+    component: Many
   },
   {
     path: '/test',

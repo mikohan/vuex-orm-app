@@ -12,8 +12,11 @@
     </div>
     <div>
       <ul>
-        <li v-for="item in items" :key="item.$uid">
-          {{ item.body }}
+        <li v-for="item in profiles" :key="item.$uid">
+          <pre>
+            {{ item }}
+          </pre>
+          
         </li>
       </ul>
     </div>
@@ -21,7 +24,7 @@
 </template>
 
 <script>
-import Item from "@/classes/item";
+import Item from "@/classes/Item";
 import User from "@/classes/User";
 import Profile from "@/classes/Profile";
 export default {
@@ -33,8 +36,11 @@ export default {
     };
   },
   computed: {
-    items() {
-      return Item.all();
+    profiles() {
+      return Profile
+      .query()
+      .with('user')
+      .get();
     },
     user() {
       return Profile.query()
@@ -55,6 +61,21 @@ export default {
         id: 28,
         name: "Vlad",
         email: "angara99@gmail.com",
+        lists: [
+          {
+            id: 1,
+            title: 'Shopping stuff'
+          },
+          {
+            id: 2,
+            title: 'Life goals'
+          },
+          {
+            id: 3,
+            title: 'Friends'
+          }
+
+        ],
         profile: {
            id: 55,
         bio: "I am very cool",
