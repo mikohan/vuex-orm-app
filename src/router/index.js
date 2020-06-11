@@ -3,10 +3,11 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Test from '@/components/Test'
 import Many from '@/components/Many'
+import Todo from '@/components/Todo'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -16,6 +17,11 @@ Vue.use(VueRouter)
     path: '/many',
     name: 'Many',
     component: Many
+  },
+  {
+    path: '/todo',
+    name: 'Todo',
+    component: Todo
   },
   {
     path: '/test',

@@ -1,9 +1,7 @@
 import { Model } from '@vuex-orm/core'
 import List from '@/classes/List'
 
-
 export default class Item extends Model {
-
   static entity = 'items'
 
   static fields() {
@@ -14,7 +12,7 @@ export default class Item extends Model {
 
       // Relationships
 
-      list: this.belongsTo(List, 'list_id')
+      list: this.belongsTo(List, 'list_id'),
     }
   }
 }

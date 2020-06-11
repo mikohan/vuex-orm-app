@@ -21,6 +21,9 @@
       <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
     </ul>
     <h3>Ecosystem</h3>
+    <div>
+      some text
+          </div>
     <ul>
       <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
       <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -35,7 +38,7 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+                                                    msg: String
   }
 }
 </script>

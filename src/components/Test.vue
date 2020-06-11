@@ -16,7 +16,6 @@
           <pre>
             {{ item }}
           </pre>
-          
         </li>
       </ul>
     </div>
@@ -24,76 +23,73 @@
 </template>
 
 <script>
-import Item from "@/classes/Item";
-import User from "@/classes/User";
-import Profile from "@/classes/Profile";
+import Item from '@/classes/Item';
+import User from '@/classes/User';
+import Profile from '@/classes/Profile';
 export default {
   data() {
     return {
       form: {
-        body: "",
+        body: '',
       },
     };
   },
   computed: {
     profiles() {
-      return Profile
-      .query()
-      .with('user')
-      .get();
+      return Profile.query()
+        .with('user')
+        .get();
     },
     user() {
       return Profile.query()
-        .with("user")
+        .with('user')
         .find(55);
     },
   },
   methods: {
     addItem() {
       Item.insert({ data: this.form });
-      this.form.body = "";
+      this.form.body = '';
     },
   },
   beforeMount() {
     User.insert({
       data: [
         {
-        id: 28,
-        name: "Vlad",
-        email: "angara99@gmail.com",
-        lists: [
-          {
-            id: 1,
-            title: 'Shopping stuff'
+          id: 28,
+          name: 'Vlad',
+          email: 'angara99@gmail.com',
+          lists: [
+            {
+              id: 1,
+              title: 'Shopping stuff',
+            },
+            {
+              id: 2,
+              title: 'Life goals',
+            },
+            {
+              id: 3,
+              title: 'Friends',
+            },
+          ],
+          profile: {
+            id: 55,
+            bio: 'I am very cool',
+            life_goal: 'Leave this fucking country and move to usa',
           },
-          {
-            id: 2,
-            title: 'Life goals'
+        },
+        {
+          id: 27,
+          name: 'Olesya',
+          email: 'angara99@gmail.com',
+          profile: {
+            id: 65,
+            bio: 'She is very cool',
+            life_goal: 'Leave this fucking country and move to usa',
           },
-          {
-            id: 3,
-            title: 'Friends'
-          }
-
-        ],
-        profile: {
-           id: 55,
-        bio: "I am very cool",
-        life_goal: "Leave this fucking country and move to usa"
-        }
-      },
-      {
-        id: 27,
-        name: "Olesya",
-        email: "angara99@gmail.com",
-        profile: {
-           id: 65,
-        bio: "She is very cool",
-        life_goal: "Leave this fucking country and move to usa"
-        }
-      },
-      ]
-      
+        },
+      ],
     });
 
     // Profile.insert({
