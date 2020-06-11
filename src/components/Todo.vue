@@ -4,14 +4,14 @@
 
     <form>
       <input type="text" v-model="form.title" />
-      <button @click="addList">Add List</button>
+      <button @click.prevent="addList">Add List</button>
     </form>
 
-    <ListComponent
-      v-for="list in user.list"
+    <list-component
+      v-for="list in user.lists"
       :key="list.id"
       :list="list"
-    ></ListComponent>
+    ></list-component>
   </div>
 </template>
 
@@ -21,6 +21,9 @@ import ListComponent from "@/components/ListComponent";
 import List from "@/classes/List";
 
 export default {
+  components: {
+    ListComponent,
+  },
   data() {
     return {
       form: {
@@ -40,6 +43,7 @@ export default {
   methods: {
     addList() {
       List.insert({ data: this.form });
+      this.form.title = ''
     },
   },
   beforeMount() {
